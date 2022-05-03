@@ -12,7 +12,7 @@ export default function Nav() {
           <Link href='/projects'>projects</Link>
         </li>
         <li>
-          <a href='/contact'>contact</a>
+          <Link href='/contact'>contact</Link>
         </li>
       </ul>
     </StyledNav>
