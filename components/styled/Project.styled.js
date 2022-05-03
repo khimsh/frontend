@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 const StyledWork = styled.article`
-  /* background-color: #232323; */
+  background-color: #232323;
   width: 100%;
   /* box-shadow: 0 4px 4px hsl(0 0% 0% / 0.15); */
   box-shadow: 0px 10px 15px rgb(0 0 0 / 20%);
@@ -13,13 +13,28 @@ const StyledWork = styled.article`
     transform: translateY(-2px);
   }
 
-  figure {
-    position: relative;
-    padding: 0;
+  & > div {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
   }
 
-  img {
-    object-fit: contain;
+  h2 {
+    font-size: 2rem;
+    text-transform: capitalize;
+    font-weight: 500;
+  }
+
+  p {
+    font-size: 1rem;
+    line-height: 1.4;
   }
 `
 
