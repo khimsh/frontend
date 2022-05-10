@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Asap+Condensed:wght@400;700&display=swap');
 
+:root {
+  --clr-brand: #1be7ff;
+}
+
 html,
 body {
   padding: 0;

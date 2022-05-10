@@ -1,57 +1,55 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import { StyledHero } from '../components/styled/Hero.styled'
+import Link from 'next/link'
+import Projects from '../components/Projects'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
 import { StyledContainer } from '../components/styled/Container.styled'
-import { StyledFlex } from '../components/styled/Flex.styled'
+import { StyledHero } from '../components/styled/Hero.styled'
 import { StyledGrid } from '../components/styled/Grid.styled'
-import Link from 'next/link'
-import Projects from '../components/Projects'
 import { StyledHeadingTwo } from '../components/styled/Headings.styled'
 import { StyledContactLinks } from '../components/styled/ContactLinks.styled'
+import heroImg from '../public/hero-img.svg'
 
-export default function Home() {
+export default function Home({ projects }) {
   return (
-    <div>
+    <>
       <Head>
         <title>Front End Web Developer | Ia Khimsh</title>
         <meta name='description' content='Ia Khimsh - Markup &amp; Front-End development.' />
         <link rel='icon' href='/favicon.ico' />
       </Head>
 
-      <StyledHero>
-        <StyledContainer>
-          <StyledFlex>
-            <div>
-              <h1>Front-End development</h1>
+      <StyledContainer>
+        <StyledHero>
+          <div className='hero-texts'>
+            <h1>Front-End development</h1>
 
-              <ul>
-                <li>
-                  <a href='mailto:mailto:i.khimsh@gmail.com' aria-label='email'>
-                    <FontAwesomeIcon icon={faEnvelope} size='xl' />
-                  </a>
-                </li>
-                <li>
-                  <a href='https://github.com/khimsh' target='_blank' rel='noopener noreferrer' aria-label='github'>
-                    <FontAwesomeIcon icon={faGithub} size='xl' />
-                  </a>
-                </li>
-                <li>
-                  <a href='https://www.linkedin.com/in/ia-khimsh/' target='_blank' rel='noopener noreferrer' aria-label='linkedin'>
-                    <FontAwesomeIcon icon={faLinkedin} size='xl' />
-                  </a>
-                </li>
-              </ul>
-            </div>
+            <ul>
+              <li>
+                <a href='mailto:mailto:i.khimsh@gmail.com' aria-label='email'>
+                  <FontAwesomeIcon icon={faEnvelope} size='xl' />
+                </a>
+              </li>
+              <li>
+                <a href='https://github.com/khimsh' target='_blank' rel='noopener noreferrer' aria-label='github'>
+                  <FontAwesomeIcon icon={faGithub} size='xl' />
+                </a>
+              </li>
+              <li>
+                <a href='https://www.linkedin.com/in/ia-khimsh/' target='_blank' rel='noopener noreferrer' aria-label='linkedin'>
+                  <FontAwesomeIcon icon={faLinkedin} size='xl' />
+                </a>
+              </li>
+            </ul>
+          </div>
 
-            <div>
-              <Image src='/decoration.png' width={586} height={542} alt='Ia Khimsh - Front-End Developer.' />
-            </div>
-          </StyledFlex>
-        </StyledContainer>
-      </StyledHero>
+          <div className='hero-image'>
+            <Image src={heroImg} width={600} height={542} priority alt='Ia Khimsh - Front-End Developer.' />
+          </div>
+        </StyledHero>
+      </StyledContainer>
 
       <section style={{ marginBottom: '5rem' }}>
         <StyledContainer>
@@ -60,7 +58,7 @@ export default function Home() {
           </StyledHeadingTwo>
 
           <StyledGrid>
-            <Projects />
+            <Projects projects={projects} />
           </StyledGrid>
         </StyledContainer>
       </section>
@@ -93,6 +91,12 @@ export default function Home() {
           </StyledContactLinks>
         </StyledContainer>
       </section>
-    </div>
+    </>
   )
+}
+
+export async function getStaticProps(context) {
+  const data = await fetch('https://khimshportfolio.herokuapp.com/api/projects')
+  const projects = await data.json()
+  return { props: { projects } }
 }

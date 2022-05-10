@@ -1,7 +1,6 @@
 import Head from 'next/head'
 import { StyledContainer } from '../components/styled/Container.styled'
-import Link from 'next/link'
-import { StyledHeadingTwo } from '../components/styled/Headings.styled'
+import { StyledPageHeading } from '../components/styled/Headings.styled'
 import { StyledContactLinks } from '../components/styled/ContactLinks.styled'
 
 export default function ContactPage() {
@@ -15,9 +14,7 @@ export default function ContactPage() {
 
       <section>
         <StyledContainer>
-          <StyledHeadingTwo>
-            <Link href='/contact'>Get in touch</Link>
-          </StyledHeadingTwo>
+          <StyledPageHeading>Get in touch</StyledPageHeading>
 
           <StyledContactLinks>
             <li>

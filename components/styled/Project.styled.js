@@ -23,6 +23,13 @@ const StyledWork = styled.article`
       display: flex;
       align-items: center;
       gap: 10px;
+      font-size: 1.25rem;
+      transition: color 200ms ease-in-out;
+
+      &:hover,
+      &:focus {
+        color: var(--clr-brand);
+      }
     }
   }
 

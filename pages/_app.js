@@ -1,3 +1,4 @@
+import App from 'next/app'
 import Layout from '../components/Layout'
 import '../styles/globals.css'
 import { config } from '@fortawesome/fontawesome-svg-core'
@@ -10,6 +11,13 @@ function MyApp({ Component, pageProps }) {
       <Component {...pageProps} />
     </Layout>
   )
+}
+
+MyApp.getInitialProps = async (appContext) => {
+  // calls page's `getInitialProps` and fills `appProps.pageProps`
+  const appProps = await App.getInitialProps(appContext)
+
+  return { ...appProps }
 }
 
 export default MyApp
