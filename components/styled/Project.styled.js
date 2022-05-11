@@ -37,11 +37,19 @@ const StyledWork = styled.article`
     font-size: 2rem;
     text-transform: capitalize;
     font-weight: 500;
+
+    @media (max-width: 1200px) {
+      font-size: 1.5rem;
+    }
   }
 
   p {
     font-size: 1rem;
     line-height: 1.4;
+
+    @media (max-width: 1200px) {
+      font-size: 1rem;
+    }
   }
 `
 

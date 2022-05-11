@@ -21,8 +21,10 @@ function LoginPage() {
 
     fetch('https://khimshportfolio.herokuapp.com/api/users/login', options)
       .then((resp) => {
-        console.log(resp)
-        Router.push('/dashboard')
+        console.log(resp.data)
+        if (resp.ok) {
+          Router.push('/dashboard')
+        }
       })
       .catch((err) => console.log(err))
   }

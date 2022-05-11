@@ -46,7 +46,7 @@ export default function Home({ projects }) {
           </div>
 
           <div className='hero-image'>
-            <Image src={heroImg} width={600} height={542} priority alt='Ia Khimsh - Front-End Developer.' />
+            <Image src={heroImg} width={600} height={542} layout='fixed' priority alt='Ia Khimsh - Front-End Developer.' />
           </div>
         </StyledHero>
       </StyledContainer>
