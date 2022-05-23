@@ -10,21 +10,26 @@ import { faBars } from '@fortawesome/free-solid-svg-icons'
 import { useEffect, useState } from 'react'
 
 export default function Layout({ children }) {
-  const [isNavShown, setIsNavShown] = useState(false)
+  const [isNavShown, setIsNavShown] = useState(true)
+  const [isSmallScreen, setIsSmallScreen] = useState(false)
   const { height, width } = useWindowDimensions()
 
   const handleNavClose = () => {
+    if (!isSmallScreen) return
     setIsNavShown(false)
   }
   const handleNavOpen = () => {
+    if (!isSmallScreen) return
     setIsNavShown(true)
   }
 
   useEffect(() => {
     if (width > 768) {
       setIsNavShown(true)
+      setIsSmallScreen(false)
     } else {
       setIsNavShown(false)
+      setIsSmallScreen(true)
     }
   }, [width])
 
