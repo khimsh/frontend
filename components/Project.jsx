@@ -9,7 +9,13 @@ export default function Work({ project }) {
     <StyledWork>
       <figure style={{ position: 'relative', width: '100%', aspectRatio: '1.35' }}>
         {/* fill,fixed,intrinsic,responsive,raw,undefined */}
-        <Image src={'https://khimshportfolio.herokuapp.com/' + projectImage} layout='fill' objectFit='contain' alt={title} />
+        <Image
+          src={'https://khimshportfolio.herokuapp.com/' + projectImage}
+          layout='fill'
+          objectFit='contain'
+          alt={title}
+          priority={true}
+        />
       </figure>
 
       <div>
